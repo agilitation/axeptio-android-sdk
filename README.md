@@ -44,11 +44,14 @@ class MainActivity : AppCompatActivity() {
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        setContentView(R.layout.activity_main)
+        val rootView = findViewById(R.id.rootView)
 
         axeptio.initialize("<Client ID>", "<Version>") { initError ->
             // Handle error
             // You could try to initialize again after some delay for example
-            axeptio.showConsentDialog(activity = this) { consentError ->
+            axeptio.showConsentView(view = this.rootView) { consentError ->
                 // User has made his choices
                 // We can now enable or disable the collection of metrics of the analytics library
                 if (axeptio.getUserConsent("<Vendor name>")!!) {
@@ -75,12 +78,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        setContentView(R.layout.activity_main);
+        View rootView = (View) findViewById(R.id.rootView);
 
         Axeptio axeptio = Axeptio.instance(this);
         axeptio.initialize("<Client ID>", "<Version>", initError -> {
             // Handle error
             // You could try to initialize again after some delay for example
-            axeptio.showConsentDialog(MainActivity.this, consentError -> {
+            axeptio.showConsentView(rootView, consentError -> {
                         // User has made his choices
                         // We can now enable or disable the collection of metrics of the analytics library
                         if (axeptio.getUserConsent("<Vendor name>")) {
@@ -105,12 +111,15 @@ The `initialize` function initializes the SDK by fetching the configuration and 
 fun initialize(clientId: String, version: String, completionHandler: Axeptio.CompletionHandler)
 ```
 
-### showConsentDialog
+### showConsentView
 
-The `showConsentDialog` function shows Axeptio's widget to the user in a given `AlertDialog` view and calls the completion handler when the user has made his choices. If `onlyFirstTime` is true and the user has already made his choices in a previous call the widget is not shown and the completion is called immediately. However if the configuration includes new vendors then the widget is shown again. You can specify an `initialStepIndex` greater than 0 to show a different step directly.
+The `showConsentDialog` function shows Axeptio's widget to the user in a given `View` and calls the completion handler when the user has made his choices. If `onlyFirstTime` is true and the user has already made his choices in a previous call the widget is not shown and the completion is called immediately. However if the configuration includes new vendors then the widget is shown again. You can specify an `initialStepIndex` greater than 0 to show a different step directly.
+
+Axeptio will try and find a parent view to hold Axeptio view from the value given to view. Axeptio will walk up the view tree trying to find a suitable parent, which is defined as a `CoordinatorLayout` or the window decor's content view, whichever comes first. 
+Having a `CoordinatorLayout` in your view hierarchy allows Axeptio to enable certain features.
 
 ```kotlin
-fun showConsentDialog(initialStepIndex: Int = 0, onlyFirstTime: Boolean = true, activity: Activity, completionHandler: Axeptio.CompletionHandler): (() → Unit)?
+fun showConsentView(initialStepIndex: Int = 0, onlyFirstTime: Boolean = true, view: View, completionHandler: Axeptio.CompletionHandler): (() → Unit)?
 ```
 
 If the widget is shown the function returns a dismiss handler that you can call to hide the widget should you need it. Otherwise returns null.
