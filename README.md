@@ -33,7 +33,7 @@ dependencies {
 
 ### Kotlin
 
-In the main `Activity` of your app, initialize the SDK by calling the `initialize` method providing a `clientId` and a `version`. Once the initialization is completed, you can make the widget appear by calling the `showConsentDialog` method.
+In the main `Activity` of your app, initialize the SDK by calling the `initialize` method providing a `clientId` and a `version`. Once the initialization is completed, you can make the widget appear by calling the `showConsentView` method.
 
 *MainActivity.kt*
 ```kotlin
@@ -113,7 +113,7 @@ fun initialize(clientId: String, version: String, completionHandler: Axeptio.Com
 
 ### showConsentView
 
-The `showConsentDialog` function shows Axeptio's widget to the user in a given `View` and calls the completion handler when the user has made his choices. If `onlyFirstTime` is true and the user has already made his choices in a previous call the widget is not shown and the completion is called immediately. However if the configuration includes new vendors then the widget is shown again. You can specify an `initialStepIndex` greater than 0 to show a different step directly.
+The `showConsentView` function shows Axeptio's widget to the user in a given `View` and calls the completion handler when the user has made his choices. If `onlyFirstTime` is true and the user has already made his choices in a previous call the widget is not shown and the completion is called immediately. However if the configuration includes new vendors then the widget is shown again. You can specify an `initialStepIndex` greater than 0 to show a different step directly.
 
 Axeptio will try and find a parent view to hold Axeptio view from the value given to view. Axeptio will walk up the view tree trying to find a suitable parent, which is defined as a `CoordinatorLayout` or the window decor's content view, whichever comes first. 
 Having a `CoordinatorLayout` in your view hierarchy allows Axeptio to enable certain features.
