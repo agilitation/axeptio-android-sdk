@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'maven-publish'
 }
 
 android {
@@ -29,18 +30,27 @@ android {
     }
 }
 
-//Properties properties = new Properties()
-//if (rootProject.file("local.properties").exists()) {
-//    properties.load(rootProject.file("local.properties").newDataInputStream())
-//}
+Properties localProperties = new Properties()
+if (rootProject.file("local.properties").exists()) {
+    localProperties.load(rootProject.file("local.properties").newDataInputStream())
+}
+def githubUser = localProperties["GITHUB_USER"] != null ? localProperties["GITHUB_USER"] : System.getenv('GITHUB_USER')
+def githubToken = localProperties["GITHUB_TOKEN"] != null ? localProperties["GITHUB_TOKEN"] : System.getenv('GITHUB_TOKEN')
+println "githubUser : $githubUser"
+println "githubToken : $githubUser"
+
 repositories {
     maven {
-        url = "https://maven.pkg.github.com/agilitation/axeptio-android-sdk"
-//        credentials {
-//            username = properties["github.user"]
-//            password = properties["github.token"]
-//        }
+        name = 'AxeptioSDKMavenRepository'
+        url = "file://$projectDir/../maven-repository"
     }
+//    maven {
+//        url = "https://maven.pkg.github.com/agilitation/axeptio-android-sdk"
+//        credentials {
+//            username = githubUser
+//            password = githubToken
+//        }
+//    }
 }
 
 dependencies {
@@ -51,4 +61,20 @@ dependencies {
     implementation 'com.google.android.material:material:1.3.0'
 
     api "eu.axeptio:axeptio-sdk-sources:1.0.0"
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+
+                groupId = 'eu.axeptio'
+                artifactId = 'axeptio-sdk'
+                version = android.defaultConfig.versionName
+            }
+        }
+    }
 }
