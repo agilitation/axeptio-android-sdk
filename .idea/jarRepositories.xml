@@ -31,5 +31,25 @@
       <option name="name" value="maven" />
       <option name="url" value="https://jitpack.io" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="AxeptioSDKMavenRepo" />
+      <option name="name" value="AxeptioSDKMavenRepo" />
+      <option name="url" value="file:////../repo" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="AxeptioSDKMavenRepo" />
+      <option name="name" value="AxeptioSDKMavenRepo" />
+      <option name="url" value="file:/$PROJECT_DIR$/sdk/maven" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="AxeptioSDKMavenRepo" />
+      <option name="name" value="AxeptioSDKMavenRepo" />
+      <option name="url" value="file:/$PROJECT_DIR$/maven/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="AxeptioSDKMavenRepository" />
+      <option name="name" value="AxeptioSDKMavenRepository" />
+      <option name="url" value="file:/$PROJECT_DIR$/maven-repository/" />
+    </remote-repository>
   </component>
 </project>
