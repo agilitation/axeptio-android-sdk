@@ -7,6 +7,7 @@ User consent is not only limited to the Web but applies to all platforms collect
 ## Installation
 
 ### Axeptio SDK is available on [JitPack](https://jitpack.io/#agilitation/axeptio-android-sdk)
+[![](https://jitpack.io/v/agilitation/axeptio-android-sdk.svg)](https://jitpack.io/#agilitation/axeptio-android-sdk)
 
 1. Add the JitPack repository to your project **root build.gradle** file:
 
