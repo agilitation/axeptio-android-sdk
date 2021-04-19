@@ -3,7 +3,6 @@ package eu.axeptio.sdk.example
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import eu.axeptio.sdk.R
 import eu.axeptio.sdk.axeptio
 
 class MainActivity : AppCompatActivity() {

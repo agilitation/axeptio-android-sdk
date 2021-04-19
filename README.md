@@ -26,7 +26,7 @@ allprojects {
 */app/build.gradle*
 ```gradle
 dependencies {
-    implementation 'com.github.agilitation:axeptio-android-sdk:0.1.1'
+    implementation 'com.github.agilitation:axeptio-android-sdk:0.1.2'
 }
 ```
 
