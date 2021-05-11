@@ -9,7 +9,7 @@ User consent is not only limited to the Web but applies to all platforms collect
 ### Axeptio SDK is available on [Maven Central](https://search.maven.org/search?q=eu.axeptio:android-sdk)
 [![Maven Central](https://img.shields.io/maven-central/v/eu.axeptio/android-sdk.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22eu.axeptio%22%20AND%20a:%22android-sdk%22)
 
-1. Add the Maven Local repository to your project **root build.gradle** file:
+1. Add the Maven Central repository to your project **root build.gradle** file:
 
 */build.gradle*
 ```gradle
@@ -116,8 +116,8 @@ fun initialize(clientId: String, version: String, completionHandler: Axeptio.Com
 The `showConsentView` function shows Axeptio's widget to the user in a given `View` and calls the completion handler when the user has made his choices. If `onlyFirstTime` is true and the user has already made his choices in a previous call the widget is not shown and the completion is called immediately. However if the configuration includes new vendors then the widget is shown again. You can specify an `initialStepIndex` greater than 0 to show a different step directly.
 
 Axeptio will try and find a parent view to hold Axeptio view from the value given to view. Axeptio will walk up the view tree trying to find a suitable parent, which is defined as a `CoordinatorLayout` or the window decor's content view, whichever comes first.
+
 `singleTop` can be used to insure that the last call to `showConsentView` will hide (remove from parent) every previously displayed `consentView`.
-Having a `CoordinatorLayout` in your view hierarchy allows Axeptio to enable certain features.
 
 ```kotlin
 fun showConsentView(initialStepIndex: Int = 0, onlyFirstTime: Boolean = true, singleTop: Boolean = true, view: View, completionHandler: Axeptio.CompletionHandler): (() → Unit)?
