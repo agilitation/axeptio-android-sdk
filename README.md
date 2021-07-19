@@ -39,7 +39,6 @@ In the main `Activity` of your app, initialize the SDK by calling the `initializ
 *MainActivity.kt*
 ```kotlin
 import eu.axeptio.sdk.Axeptio
-import eu.axeptio.sdk.axeptio
 
 class MainActivity : AppCompatActivity() {
     
@@ -48,6 +47,9 @@ class MainActivity : AppCompatActivity() {
         
         setContentView(R.layout.activity_main)
         val rootView = findViewById(R.id.rootView)
+        
+        // Set a custom token
+        // axeptio.token = "auto-generated-token-xxx"
 
         axeptio.initialize("<Client ID>", "<Version>") { initError ->
             // Handle error
@@ -84,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
         View rootView = (View) findViewById(R.id.rootView);
 
         Axeptio axeptio = Axeptio.instance(this);
+        
+        // Set a custom token
+        // axeptio.setToken("auto-generated-token-xxx");
+        
         axeptio.initialize("<Client ID>", "<Version>", initError -> {
             // Handle error
             // You could try to initialize again after some delay for example
@@ -103,7 +109,29 @@ public class MainActivity extends AppCompatActivity {
 
 ## API Reference
 
-### initialize
+### Properties
+
+#### token (Kotlin only)
+
+The `token` property can be used to set a custom token. By default, a random identifier is set.
+
+This property is particularly useful for apps using webviews. By opening the webview while passing the token in the `axeptio_token` querystring parameter, the consent previously given in the app will be reused on the website if it uses the web SDK.
+
+### Methods
+
+#### getToken (Java only)
+
+The `getToken` method return the value of the token.
+
+#### getUserConsent
+
+The `getUserConsent` function returns an optional boolean indicating if the user has made his choice for given vendor and whether or not he gave his consent. If the returned value is `null` it either means the vendor was not present in the configuration or the widget has not been presented to the user yet.
+
+```kotlin
+fun getUserConsent(vendorName: String): Boolean?
+```
+
+#### initialize
 
 The `initialize` function initializes the SDK by fetching the configuration and calling the completion handler when done. If it fails (because of network for example) it is OK to call the `initialize` function again.
 
@@ -111,7 +139,11 @@ The `initialize` function initializes the SDK by fetching the configuration and 
 fun initialize(clientId: String, version: String, completionHandler: Axeptio.CompletionHandler)
 ```
 
-### showConsentView
+#### setToken (Java only)
+
+The `setToken` method allows to set a custom value for the token.
+
+#### showConsentView
 
 The `showConsentView` function shows Axeptio's widget to the user in a given `View` and calls the completion handler when the user has made his choices. If `onlyFirstTime` is true and the user has already made his choices in a previous call the widget is not shown and the completion is called immediately. However if the configuration includes new vendors then the widget is shown again. You can specify an `initialStepIndex` greater than 0 to show a different step directly.
 
@@ -124,14 +156,6 @@ fun showConsentView(initialStepIndex: Int = 0, onlyFirstTime: Boolean = true, si
 ```
 
 If the widget is shown the function returns a dismiss handler that you can call to hide the widget should you need it. Otherwise returns null.
-
-### getUserConsent
-
-The `getUserConsent` function returns an optional boolean indicating if the user has made his choice for given vendor and whether or not he gave his consent. If the returned value is `null` it either means the vendor was not present in the configuration or the widget has not been presented to the user yet.
-
-```kotlin
-fun getUserConsent(vendorName: String): Boolean?
-```
 
 ## Author
 
