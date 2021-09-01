@@ -4,6 +4,10 @@
 
 User consent is not only limited to the Web but applies to all platforms collecting user data. Mobile devices are part of it.
 
+## Requirements
+
+- Minimum Android version: **Nougat (7.x)**
+
 ## Installation
 
 ### Axeptio SDK is available on [Maven Central](https://search.maven.org/search?q=eu.axeptio:android-sdk)
