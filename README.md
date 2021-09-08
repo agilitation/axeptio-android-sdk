@@ -10,7 +10,7 @@ User consent is not only limited to the Web but applies to all platforms collect
 
 ## Installation
 
-### Axeptio SDK is available on [Maven Central](https://search.maven.org/search?q=eu.axeptio:android-sdk)
+### Axeptio SDK is available on [Maven Central](https://search.maven.org/artifact/eu.axeptio/android-sdk)
 [![Maven Central](https://img.shields.io/maven-central/v/eu.axeptio/android-sdk.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22eu.axeptio%22%20AND%20a:%22android-sdk%22)
 
 1. Add the Maven Central repository to your project **root build.gradle** file:
