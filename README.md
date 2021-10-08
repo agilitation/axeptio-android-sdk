@@ -30,7 +30,7 @@ allprojects {
 */app/build.gradle*
 ```gradle
 dependencies {
-    implementation 'eu.axeptio:android-sdk:0.2.0'
+    implementation 'eu.axeptio:android-sdk:0.2.1'
 }
 ```
 
