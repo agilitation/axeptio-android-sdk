@@ -6,6 +6,16 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import eu.axeptio.sdk.axeptio
 
+const val clientId = "6058635aa6a92469bed037b0"
+const val version = "ga_fb"
+//const val clientId = "623d7eadac49c0081cb74d28"
+//const val version = "veracash ios-fr"
+//const val clientId = "62b0930502449e7f75501de8"
+//const val version = "whitelabel club app -en"
+
+//const val clientId = "Your Client Id"
+//const val version = "Your version"
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var rootView: View
@@ -20,10 +30,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.showCookiesDialogButton).setOnClickListener(::showCookiesView)
 
         if (savedInstanceState == null && !axeptio.isInitialized) {
-            axeptio.initialize(
-                clientId = "<Replace with your client ID>",
-                version = "<Replace with your version>"
-            ) { error ->
+            axeptio.initialize( clientId, version) { error ->
                 if (error == null) {
                     showAxeptioConsentView()
                 }

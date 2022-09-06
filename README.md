@@ -6,7 +6,22 @@ User consent is not only limited to the Web but applies to all platforms collect
 
 ## Requirements
 
-- Minimum Android version: **Nougat (7.x)**
+- Minimum Android version: **Lollipop (5.x)**
+- Api Level 21
+- tools:
+  - Gradle 7.2.2 and more
+  - AGP 7.3.3  and more
+  - Android Studio Chipmunk 
+
+- note:
+
+we previously wrote in this readme
+
+Nougat , 7.x that is API Level 24
+
+The source code was using actually still using API Level 21, and, to work on React Native compatibility, it appears that we need API level 21 that is Android 5 lollipop so...
+
+Though, in future releases , we will synchronise better this in between all possible clients the SDK needs to support and google requirements for android OS version support
 
 ## Installation
 
@@ -30,7 +45,7 @@ allprojects {
 */app/build.gradle*
 ```gradle
 dependencies {
-    implementation 'eu.axeptio:android-sdk:0.2.1'
+    implementation 'eu.axeptio:android-sdk:0.2.2'
 }
 ```
 
