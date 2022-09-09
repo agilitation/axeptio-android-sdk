@@ -13,15 +13,15 @@ User consent is not only limited to the Web but applies to all platforms collect
   - AGP 7.3.3  and more
   - Android Studio Chipmunk 
 
-- note:
+#### **note**
 
-we previously wrote in this readme
+_we previously wrote in this readme_
 
-Nougat , 7.x that is API Level 24
+_Nougat , 7.x that is API Level 24_
 
-The source code was using actually still using API Level 21, and, to work on React Native compatibility, it appears that we need API level 21 that is Android 5 lollipop so...
+_The source code was using actually still using API Level 21, and, to work on React Native compatibility, it appears that we need API level 21 that is Android 5 lollipop so..._
 
-Though, in future releases , we will synchronise better this in between all possible clients the SDK needs to support and google requirements for android OS version support
+_Though, in future releases , we will synchronise better this in between all possible clients the SDK needs to support and google requirements for android OS version support_
 
 ## Installation
 
