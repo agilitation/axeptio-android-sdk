@@ -1,4 +1,4 @@
-# Axeptio SDK
+# Axeptio SDK @ 0.2.2
 
 ## Introduction
 
@@ -183,3 +183,20 @@ Axeptio
 ## License
 
 AxeptioSDK is available under the MIT license. See the LICENSE file for more info.
+
+## Improvements
+
+####  **0.2.1**
+- Minimum Android version: **Lollipop (5.x)**
+- Api Level 21
+
+####  **0.2.2**
+- Minimum Android version: **Lollipop (5.x)**
+- Api Level 21
+- **tools**
+  - Gradle 7.2.2 and more
+  - AGP 7.3.3  and more
+  - Android Studio Chipmunk 
+- **fixes**
+  - [UX Improvements] - reduce left and right horizontal insets to provide a better width
+  - [fixes AXE-1601] - in cookie, vendor, the domain turns out to be optional and not mandatory
