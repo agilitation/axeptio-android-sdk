@@ -186,10 +186,6 @@ AxeptioSDK is available under the MIT license. See the LICENSE file for more inf
 
 ## Improvements
 
-####  **0.2.1**
-- Minimum Android version: **Lollipop (5.x)**
-- Api Level 21
-
 ####  **0.2.2**
 - Minimum Android version: **Lollipop (5.x)**
 - Api Level 21
@@ -200,3 +196,9 @@ AxeptioSDK is available under the MIT license. See the LICENSE file for more inf
 - **fixes**
   - [UX Improvements] - reduce left and right horizontal insets to provide a better width
   - [fixes AXE-1601] - in cookie, vendor, the domain turns out to be optional and not mandatory
+  
+####  **0.2.1**
+- Minimum Android version: **Lollipop (5.x)**
+- Api Level 21
+
+
