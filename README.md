@@ -1,4 +1,4 @@
-# Axeptio SDK @ 0.2.2
+# Axeptio SDK @ 0.4.0
 
 ## Introduction
 
@@ -7,11 +7,7 @@ User consent is not only limited to the Web but applies to all platforms collect
 ## Requirements
 
 - Minimum Android version: **Lollipop (5.x)**
-- Api Level 21
-- tools:
-  - Gradle 7.2.2 and more
-  - AGP 7.3.3  and more
-  - Android Studio Chipmunk 
+- Android Studio Dolphin
 
 #### **note**
 
@@ -22,6 +18,47 @@ _Nougat , 7.x that is API Level 24_
 _The source code was using actually still using API Level 21, and, to work on React Native compatibility, it appears that we need API level 21 that is Android 5 lollipop so..._
 
 _Though, in future releases , we will synchronise better this in between all possible clients the SDK needs to support and google requirements for android OS version support_
+
+
+## Author
+
+Axeptio
+
+## License
+
+AxeptioSDK is available under the MIT license. See the LICENSE file for more info.
+
+## Improvements
+
+#### **0.4.0
+
+- with this version we sync version for both android an iOS version
+- Minimum Android version: **Lollipop (5.x)**
+- Api Level 21
+- target SDK 33
+- Build Tools 33.0.0
+- tools:
+  - Gradle 7.3.0 and more
+  - AGP 7.4  and more
+  - Android Studio Dolphin 
+
+
+####  **0.2.2**
+- Minimum Android version: **Lollipop (5.x)**
+- Api Level 21
+- **tools**
+  - Gradle 7.2.2 and more
+  - AGP 7.3.3  and more
+  - Android Studio Chipmunk 
+- **fixes**
+  - [UX Improvements] - reduce left and right horizontal insets to provide a better width
+  - [fixes AXE-1601] - in cookie, vendor, the domain turns out to be optional and not mandatory
+  
+####  **0.2.1**
+- Minimum Android version: **Lollipop (5.x)**
+- Api Level 21
+
+
 
 ## Installation
 
@@ -45,7 +82,7 @@ allprojects {
 */app/build.gradle*
 ```gradle
 dependencies {
-    implementation 'eu.axeptio:android-sdk:0.2.2'
+    implementation 'eu.axeptio:android-sdk:0.4.0'
 }
 ```
 
@@ -152,10 +189,28 @@ fun getUserConsent(vendorName: String): Boolean?
 
 #### initialize
 
-The `initialize` function initializes the SDK by fetching the configuration and calling the completion handler when done. If it fails (because of network for example) it is OK to call the `initialize` function again.
+The `initialize` function initializes the SDK by fetching the configuration and calling the completion handler when finished. 
+
+If this fails, because of the network for example, it is possible to call the `initialize` function again, unless the error is Already Initialized.
+
+If you need to reset the Axeptio SDK for a different project id for the same client id or change both you should call the revere function
 
 ```kotlin
 fun initialize(clientId: String, version: String, completionHandler: Axeptio.CompletionHandler)
+```
+
+#### rerere (reset)
+
+The `rerere` function resets the SDK by fetching the configuration and calling the completion handler when finished in the same way as `initialize` function described above.
+
+The main difference is that the call to `reset` first releases everything that has been loaded for the current Client Id and Project Id, then reloads the data for the new Client Id and Project Id. 
+
+Most of the time this should be related to using another version of the project for the same Client Id - both can change.
+
+The name `rerere` comes from the `git rerere` function involved in resolving the same conflicts over and over again until the subject branches are done.
+
+```kotlin
+fun rerere(clientId: String, version: String, completionHandler: Axeptio.CompletionHandler)
 ```
 
 #### setToken (Java only)
@@ -175,30 +230,4 @@ fun showConsentView(initialStepIndex: Int = 0, onlyFirstTime: Boolean = true, si
 ```
 
 If the widget is shown the function returns a dismiss handler that you can call to hide the widget should you need it. Otherwise returns null.
-
-## Author
-
-Axeptio
-
-## License
-
-AxeptioSDK is available under the MIT license. See the LICENSE file for more info.
-
-## Improvements
-
-####  **0.2.2**
-- Minimum Android version: **Lollipop (5.x)**
-- Api Level 21
-- **tools**
-  - Gradle 7.2.2 and more
-  - AGP 7.3.3  and more
-  - Android Studio Chipmunk 
-- **fixes**
-  - [UX Improvements] - reduce left and right horizontal insets to provide a better width
-  - [fixes AXE-1601] - in cookie, vendor, the domain turns out to be optional and not mandatory
-  
-####  **0.2.1**
-- Minimum Android version: **Lollipop (5.x)**
-- Api Level 21
-
 
