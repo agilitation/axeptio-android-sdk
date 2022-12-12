@@ -30,7 +30,7 @@ AxeptioSDK is available under the MIT license. See the LICENSE file for more inf
 
 ## Improvements
 
-#### **0.4.0
+#### **0.4.0**
 
 - with this version we sync version for both android an iOS version
 - Minimum Android version: **Lollipop (5.x)**
