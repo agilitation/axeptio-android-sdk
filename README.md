@@ -203,7 +203,7 @@ fun initialize(clientId: String, version: String, completionHandler: Axeptio.Com
 
 The `rerere` function resets the SDK by fetching the configuration and calling the completion handler when finished in the same way as `initialize` function described above.
 
-The main difference is that the call to `reset` first releases everything that has been loaded for the current Client Id and Project Id, then reloads the data for the new Client Id and Project Id. 
+The main difference is that the call to `rerere` first releases everything that has been loaded for the current Client Id and Project Id, then reloads the data for the new Client Id and Project Id. 
 
 Most of the time this should be related to using another version of the project for the same Client Id - both can change.
 
