@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+
     <Button
         android:id="@+id/clearUserConsentsButton"
         android:layout_width="wrap_content"
@@ -13,18 +21,47 @@
         android:layout_marginTop="16dp"
         android:text="Clear user consents"
         android:textColor="@android:color/white"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <Button
         android:id="@+id/showCookiesDialogButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="Show widget"
         android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/clearUserConsentsButton"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/clearUserConsentsButton" />
+        app:layout_constraintStart_toStartOf="@+id/clearUserConsentsButton"
+        app:layout_constraintTop_toBottomOf="@+id/clearUserConsentsButton" />
+
+    <Button
+        android:id="@+id/newActivityButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Activity"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/showCookiesDialogButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/showCookiesDialogButton"
+        app:layout_constraintTop_toBottomOf="@+id/showCookiesDialogButton" />
+
+    <Button
+        android:id="@+id/swapIdentifiers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Swap Identifiers"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/newActivityButton"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/newActivityButton"
+        app:layout_constraintTop_toBottomOf="@+id/newActivityButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="Theme.AxeptioSDK" parent="Theme.AppCompat.Light">
+    <style name="Theme.AxeptioSDK" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">#fff7fafc</item>
         <item name="colorPrimaryDark">#ffbdbfc0</item>
         <item name="colorAccent">#ffffc823</item>
