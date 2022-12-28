@@ -1,4 +1,4 @@
-# Axeptio SDK @ 0.4.0
+# Axeptio SDK @ 0.4.1
 
 ## Introduction
 
@@ -30,6 +30,31 @@ AxeptioSDK is available under the MIT license. See the LICENSE file for more inf
 
 ## Improvements
 
+#### **0.4.1**
+
+- with this version we sync version for both android an iOS version
+- Minimum Android version: **Lollipop (5.x)**
+- Api Level 21
+- target SDK 33
+- Build Tools 33.0.0
+- tools:
+  - Gradle 7.3.0 and more
+  - AGP 7.4  and more
+  - Android Studio Dolphin 
+ - test app in 0.4.2
+- fixes
+
+## What's Changed
+* [DEV-2395] - Layout management by @pplaquette in https://github.com/axeptio/axeptio-android-sdk-sources/pull/1
+* [DEV-2428] - Rerere by @pplaquette in https://github.com/axeptio/axeptio-android-sdk-sources/pull/2
+* [fixes DEV-2320]-info layout options management bug by @pplaquette in https://github.com/axeptio/axeptio-android-sdk-sources/pull/3
+* [fixes DEV-2587] - info layout external width and shift by @pplaquette in https://github.com/axeptio/axeptio-android-sdk-sources/pull/4
+* [DEV-2589] - Code patrol from ANdroid Studio Inspect code by @pplaquette in https://github.com/axeptio/axeptio-android-sdk-sources/pull/5
+* [fixes DEV-2588] - increase button size to improve touchability by @pplaquette in https://github.com/axeptio/axeptio-android-sdk-sources/pull/6
+* [fixes DEV-2594] - increase text  and icons sizes for vendors and but… by @pplaquette in https://github.com/axeptio/axeptio-android-sdk-sources/pull/7
+
+ 
+
 #### **0.4.0**
 
 - with this version we sync version for both android an iOS version
@@ -41,6 +66,8 @@ AxeptioSDK is available under the MIT license. See the LICENSE file for more inf
   - Gradle 7.3.0 and more
   - AGP 7.4  and more
   - Android Studio Dolphin 
+  fixes
+  - add support for  info layout
 
 
 ####  **0.2.2**
