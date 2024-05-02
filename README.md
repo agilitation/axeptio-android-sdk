@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This SDK is the old Axeptio flavor and is now deprecated. Please go to [axeptio/sample-app-android](https://github.com/axeptio/sample-app-android) to discover our brand new TCF compliant SDK with sample apps in Kotlin and Java covering many use cases.
+
 # Axeptio SDK @ 0.4.1
 
 ## Introduction
